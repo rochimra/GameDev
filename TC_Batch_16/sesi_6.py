@@ -1,7 +1,6 @@
 import pygame as pg
 import random as ran
 
-
 # Inisialisasi pygame
 pg.init()
 
@@ -11,7 +10,7 @@ screen = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption('Dodge The Enemies')
 
 # Image Sebagai Background
-image = pg.image.load('C:\GitHub\GameDev\Asset\jkt48.jpg')
+image = pg.image.load('C:\GitHub\GameDev\TC_Batch_16\Asset\jkt48.jpg')
 image = pg.transform.scale(image,(800,600))
 
 # Warna
@@ -59,7 +58,7 @@ class Enemies (pg.sprite.Sprite):
     
     def update(self):
         self.rect.y += self.speed
-        if self.rect.top:
+        if self.rect.top > HEIGHT:
             self.rect.x = ran.randint(0, WIDTH - 75)
             self.rect.y = ran.randint(-100,-50)
             self.speed = ran.randint(2,6)
@@ -113,7 +112,6 @@ while run:
     # Menggambar objek
     all_sprites.draw(screen)
     
-
     # Menampilkan score
     font = pg.font.SysFont(None,30)
     text = font.render(f"score: {score}", True, WHITE)
@@ -128,5 +126,4 @@ while run:
     pg.display.flip()
     pg.display.update() 
     
-
 pg.quit()
