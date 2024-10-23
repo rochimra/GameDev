@@ -15,7 +15,7 @@ rect_x = 100
 rect_y = 100
 rect_width = 20
 rect_height = 15
-RectPosSize = (rect_x, rect_y, rect_width, rect_height)
+# RectPosSize = rect_x, rect_y, rect_width, rect_height
 
 # Menginisialisasi warna persefi
 rect_color = (0,0,255) # Warna biru
@@ -25,6 +25,7 @@ rectangle_drawn = False
 # loop game
 run = True
 while run:
+    
     for event in pg.event.get():
         if event.type == pg.QUIT:
             run = False
@@ -40,6 +41,12 @@ while run:
             rectangle_drawn = True
         else:
             pass
+        
+    # Membuat objek berubah warna
+    elif mouse_buttons[2]:
+        # if (rect_x <= mouse_x <= rect_width + rect_x) and (rect_y <= mouse_y <= rect_height + rect_y):
+        if rectangle_drawn:
+            rect_color = (255,0,0) # Merubah Objek menjadi merah
     
     # Membuat kondisi jika tombol keyboard ditekan atas, bawah
     keys = pg.key.get_pressed()
@@ -54,14 +61,14 @@ while run:
             rect_x += speed
 
 
-    # White Background
-    screen.fill((255,255,255))
+    # # White Background
+    # screen.fill((255,255,255))
     
     # Menampilkan Gambar
     screen.blit(image,(0,0))
 
     if rectangle_drawn:
-        pg.draw.rect(screen, (rect_color), (RectPosSize))
+        pg.draw.rect(screen, (rect_color), (rect_x, rect_y, rect_width, rect_height))
 
     # Update Tampilan Layar
     pg.display.update()
