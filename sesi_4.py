@@ -7,7 +7,7 @@ screen = pg.display.set_mode((800,600))
 pg.display.set_caption('My First Game')
 
 # Tambah Image
-image = pg.image.load('C:\\Users\RAJASA\Documents\GameDev\jkt48.jpg')
+image = pg.image.load('C:\GitHub\GameDev\Asset\jkt48.jpg')
 image = pg.transform.scale(image, (200,200))
 
 # loop game
