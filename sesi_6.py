@@ -11,8 +11,8 @@ screen = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption('Dodge The Enemies')
 
 # Image Sebagai Background
-image = pg.image.load('path')
-image = pg.transform.scale((800,600))
+image = pg.image.load('C:\GitHub\GameDev\Asset\jkt48.jpg')
+image = pg.transform.scale(image,(800,600))
 
 # Warna
 WHITE = (255,255,255)
@@ -66,6 +66,10 @@ while run:
 
     # Menggambar objek
     all.sprite
+
+    # Update tampilan layar
+    pg.display.flip()
+    pg.display.update() 
 
 
 pg.quit()
